@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asia BG Music — asiabgmusic.com</title>
+<meta name="description" content="Asia BG Music — менеджмент, продюсирование, артист сервис, дистрибуция. Более 200 артистов, 10 000+ треков, 1 млрд+ стримов за 2025 год.">
+<link rel="canonical" href="https://asiabgmusic.com/">
+
+<!-- favicon: тот же музыкальный знак, что и в шапке сайта -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='47' fill='%2315111f' stroke='%23e8b75c' stroke-width='4'/%3E%3Cpath d='M50 20 L74 68 L59 68 L50 50 L41 68 L26 68 Z' fill='%23e8b75c'/%3E%3Crect x='43' y='72' width='3.4' height='9' fill='%23c6478a'/%3E%3Crect x='48.3' y='67' width='3.4' height='14' fill='%23e8b75c'/%3E%3Crect x='53.6' y='74' width='3.4' height='7' fill='%23c6478a'/%3E%3C/svg%3E">
+
+<!-- Open Graph — как ссылка на asiabgmusic.com будет выглядеть в соцсетях/мессенджерах -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Asia BG Music">
+<meta property="og:title" content="Asia BG Music">
+<meta property="og:description" content="Менеджмент, продюсирование, артист сервис, дистрибуция. Более 200 артистов, 10 000+ треков, 1 млрд+ стримов за 2025 год.">
+<meta property="og:url" content="https://asiabgmusic.com/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Asia BG Music">
+<meta name="twitter:description" content="Менеджмент, продюсирование, артист сервис, дистрибуция.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0b0912;
+    --surface: #15111f;
+    --surface-2: #1c1730;
+    --gold: #e8b75c;
+    --gold-dim: #b98d3e;
+    --magenta: #c6478a;
+    --text: #f5f1ea;
+    --muted: #9a92ac;
+    --line: rgba(245,241,234,0.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Manrope',sans-serif;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--gold);color:#0b0912;}
+
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:12px;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+
+  /* ---------- sticky mini nav ---------- */
+  .mininav{
+    position:fixed;top:0;left:0;right:0;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 6vw;
+    z-index:100;
+    background:rgba(11,9,18,0);
+    backdrop-filter:blur(0px);
+    transition:background .4s ease, backdrop-filter .4s ease, border-color .4s ease;
+    border-bottom:1px solid transparent;
+  }
+  .mininav.show{
+    background:rgba(11,9,18,0.78);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .mininav .brand{
+    display:flex;align-items:center;gap:10px;
+    font-family:'Space Mono',monospace;
+    font-size:13px;letter-spacing:.12em;
+  }
+  .mininav .brand svg{width:26px;height:26px;}
+  .mininav nav{display:flex;gap:28px;}
+  .mininav nav a{
+    font-size:13px;letter-spacing:.06em;color:var(--muted);
+    padding:6px 2px;border-bottom:1px solid transparent;
+    transition:color .25s ease, border-color .25s ease;
+  }
+  .mininav nav a:hover, .mininav nav a:focus-visible{color:var(--text);border-color:var(--gold);}
+  .mininav nav a:focus-visible{outline:2px solid var(--gold);outline-offset:4px;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;flex-direction:column;
+    justify-content:center;
+    padding:6vw;
+    overflow:hidden;
+  }
+  #eq{
+    position:absolute;inset:0;
+    display:flex;align-items:flex-end;justify-content:center;gap:6px;
+    opacity:.14;pointer-events:none;
+  }
+  #eq span{
+    width:5px;background:linear-gradient(to top,var(--gold),transparent);
+    animation:eqmove 2.4s ease-in-out infinite;
+  }
+  @keyframes eqmove{
+    0%,100%{transform:scaleY(.2);}
+    50%{transform:scaleY(1);}
+  }
+  .hero-top{
+    position:relative;z-index:2;
+    display:flex;justify-content:space-between;align-items:flex-start;
+    width:100%;
+  }
+  .kicker{
+    font-family:'Space Mono',monospace;
+    font-size:12px;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--muted);
+    margin-top:6px;
+  }
+  .logo-badge{width:76px;height:76px;flex-shrink:0;}
+
+  .hero-mid{position:relative;z-index:2;margin-top:auto;margin-bottom:auto;padding-top:8vh;}
+  .hero-title{
+    font-family:'Anton',sans-serif;
+    font-weight:400;
+    line-height:.92;
+    letter-spacing:.01em;
+    font-size:clamp(38px, 8.6vw, 128px);
+    text-transform:uppercase;
+    background:linear-gradient(180deg,#fff 0%, var(--text) 45%, var(--gold-dim) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero-sub{
+    margin-top:22px;
+    font-family:'Space Mono',monospace;
+    font-size:13px;
+    letter-spacing:.5em;
+    color:var(--muted);
+    text-transform:lowercase;
+  }
+  .scrollcue{
+    position:relative;z-index:2;
+    margin-top:6vh;
+    display:flex;align-items:center;gap:10px;
+    color:var(--muted);font-size:12px;font-family:'Space Mono',monospace;
+    letter-spacing:.15em;
+  }
+  .scrollcue .bar{width:1px;height:34px;background:var(--line);position:relative;overflow:hidden;}
+  .scrollcue .bar::after{
+    content:'';position:absolute;top:-100%;left:0;width:100%;height:50%;
+    background:var(--gold);
+    animation:drip 1.8s ease-in-out infinite;
+  }
+  @keyframes drip{0%{top:-60%;}100%{top:110%;}}
+
+  /* ---------- section shell ---------- */
+  section{padding:min(14vh,120px) 6vw;position:relative;scroll-margin-top:88px;}
+  .section-head{
+    font-family:'Anton',sans-serif;
+    text-transform:uppercase;
+    font-size:clamp(30px,5vw,58px);
+    line-height:1;
+    margin-bottom:.4em;
+  }
+
+  /* ---------- about ---------- */
+  .about{
+    border-top:1px solid var(--line);
+  }
+  .about-grid{
+    display:grid;grid-template-columns: 1.1fr .9fr;gap:6vw;
+    align-items:start;
+  }
+  .about p.lead{
+    font-size:clamp(18px,2.4vw,26px);
+    line-height:1.5;
+    max-width:52ch;
+  }
+  .about p.lead b{color:var(--gold);font-weight:700;}
+  .founders{
+    margin-top:28px;color:var(--muted);font-size:14px;
+    font-family:'Space Mono',monospace;
+  }
+  .founders span{color:var(--text);}
+
+  .roster-label{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;margin-bottom:14px;}
+  .ticker-wrap{
+    overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg,transparent, #000 8%, #000 92%, transparent);
+    mask-image:linear-gradient(90deg,transparent, #000 8%, #000 92%, transparent);
+  }
+  .ticker{
+    display:flex;gap:14px;width:max-content;
+    animation:scrollx 32s linear infinite;
+  }
+  @keyframes scrollx{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  .chip{
+    font-family:'Space Mono',monospace;
+    font-size:13px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:10px 18px;
+    white-space:nowrap;
+    color:var(--text);
+    background:var(--surface);
+  }
+
+  /* stat / ticket strip */
+  .stats{
+    margin-top:8vh;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    border-top:1px solid var(--line);
+  }
+  .stat{
+    padding:34px 24px;
+    border-right:1px solid var(--line);
+    position:relative;
+  }
+  .stat:last-child{border-right:none;}
+  .stat::before, .stat::after{
+    content:'';position:absolute;width:14px;height:14px;border-radius:50%;
+    background:var(--bg);border:1px solid var(--line);top:-8px;
+  }
+  .stat::before{left:-8px;}
+  .stat::after{right:-8px;}
+  .stat:first-child::before, .stat:last-child::after{display:none;}
+  .stat .num{
+    font-family:'Anton',sans-serif;
+    font-size:clamp(28px,4vw,46px);
+    color:var(--gold);
+    letter-spacing:.01em;
+  }
+  .stat .label{
+    margin-top:6px;font-family:'Space Mono',monospace;
+    font-size:12px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;
+  }
+
+  /* ---------- services ---------- */
+  .services{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .svc-grid{
+    margin-top:6vh;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .svc{
+    background:var(--surface);
+    padding:34px 28px;
+    min-height:220px;
+    display:flex;flex-direction:column;gap:16px;
+    transition:background .3s ease;
+  }
+  .svc:hover{background:var(--surface-2);}
+  .svc .icn{width:30px;height:30px;color:var(--gold);flex-shrink:0;}
+  .svc .icn svg{width:100%;height:100%;}
+  .svc h3{
+    font-family:'Manrope',sans-serif;font-weight:800;font-size:18px;
+    text-transform:uppercase;letter-spacing:.02em;
+  }
+  .svc p{color:var(--muted);font-size:14px;line-height:1.55;}
+
+  /* ---------- anketa ---------- */
+  .anketa{
+    display:grid;grid-template-columns: .9fr 1.1fr;gap:6vw;
+  }
+  .anketa .pitch p{color:var(--muted);font-size:16px;line-height:1.6;margin-top:18px;max-width:40ch;}
+  .anketa .cta{
+    display:inline-flex;align-items:center;gap:10px;
+    margin-top:34px;
+    padding:15px 26px;
+    border:1px solid var(--gold);
+    color:var(--gold);
+    font-family:'Space Mono',monospace;
+    font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+    border-radius:2px;
+    transition:background .25s ease, color .25s ease;
+  }
+  .anketa .cta:hover, .anketa .cta:focus-visible{background:var(--gold);color:#0b0912;}
+  .anketa .cta:focus-visible{outline:2px solid var(--text);outline-offset:3px;}
+
+  .pass{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:4px;
+    position:relative;
+  }
+  .pass::before{
+    content:'';position:absolute;left:0;right:0;top:0;height:0;
+    border-top:2px dashed var(--line);
+  }
+  .pass-row{
+    display:flex;gap:20px;
+    padding:22px 28px;
+    border-bottom:1px dashed var(--line);
+    scroll-margin-top:100px;
+  }
+  .pass-row:last-child{border-bottom:none;}
+  .pass-row .n{
+    font-family:'Space Mono',monospace;
+    color:var(--gold);
+    font-size:14px;
+    flex-shrink:0;
+    padding-top:12px;
+  }
+  .pass-row .q{font-size:15px;line-height:1.5;flex:1;}
+  .pass-row .q label{display:block;margin-bottom:8px;}
+  .pass-row .q .opt{color:var(--muted);font-size:12.5px;font-weight:400;}
+  .pass-row .q small{display:block;color:var(--muted);font-size:12.5px;margin-top:4px;}
+  .pass-row input, .pass-row textarea{
+    width:100%;
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:11px 13px;
+    color:var(--text);
+    font-family:'Manrope',sans-serif;
+    font-size:14px;
+    resize:vertical;
+    transition:border-color .2s ease;
+  }
+  .pass-row input::placeholder, .pass-row textarea::placeholder{color:var(--muted);opacity:.7;}
+  .pass-row input:focus, .pass-row textarea:focus{outline:none;border-color:var(--gold);}
+  .pass-row input:focus-visible, .pass-row textarea:focus-visible{outline:2px solid var(--gold);outline-offset:1px;}
+  .pass-submit{
+    padding:24px 28px 28px;
+    display:flex;flex-direction:column;gap:12px;align-items:flex-start;
+  }
+  .send-btn{
+    font-family:'Space Mono',monospace;
+    font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+    background:var(--gold);color:#0b0912;
+    border:1px solid var(--gold);
+    padding:15px 30px;border-radius:2px;
+    cursor:pointer;
+    transition:background .2s ease, color .2s ease;
+  }
+  .send-btn:hover{background:transparent;color:var(--gold);}
+  .send-btn:focus-visible{outline:2px solid var(--text);outline-offset:3px;}
+  .send-note{font-size:12px;color:var(--muted);font-family:'Space Mono',monospace;}
+  .send-note.err{color:var(--magenta);}
+
+  /* ---------- footer ---------- */
+  footer{
+    padding:36px 6vw 40px;
+    display:flex;align-items:center;justify-content:space-between;
+    border-top:1px solid var(--line);
+    color:var(--muted);font-size:12px;
+    font-family:'Space Mono',monospace;letter-spacing:.05em;
+  }
+  footer .f-brand{display:flex;align-items:center;gap:10px;}
+  footer svg{width:20px;height:20px;}
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 900px){
+    .about-grid{grid-template-columns:1fr;gap:48px;}
+    .stats{grid-template-columns:1fr;}
+    .stat{border-right:none;border-bottom:1px solid var(--line);}
+    .stat:last-child{border-bottom:none;}
+    .svc-grid{grid-template-columns:repeat(2,1fr);}
+    .anketa{grid-template-columns:1fr;gap:40px;}
+    .mininav nav{gap:16px;}
+  }
+  @media (max-width: 560px){
+    .svc-grid{grid-template-columns:1fr;}
+    .hero-sub{letter-spacing:.3em;}
+    .mininav nav a:nth-child(1){display:none;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= STICKY MINI NAV ================= -->
+<div class="mininav" id="mininav">
+  <a href="#top" class="brand" aria-label="Asia BG Music — наверх">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="47" fill="#15111f" stroke="#e8b75c" stroke-width="2"/>
+      <path d="M50 22 L72 66 L58 66 L50 50 L42 66 L28 66 Z" fill="#e8b75c"/>
+      <rect x="44" y="70" width="3" height="8" fill="#c6478a"/>
+      <rect x="49" y="66" width="3" height="12" fill="#e8b75c"/>
+      <rect x="54" y="72" width="3" height="6" fill="#c6478a"/>
+    </svg>
+    ASIABGMUSIC
+  </a>
+  <nav>
+    <a href="#about">О компании</a>
+    <a href="#services">Услуги</a>
+    <a href="#anketa">Анкета</a>
+  </nav>
+</div>
+
+<!-- ================= HERO ================= -->
+<div class="hero" id="top">
+  <div id="eq"></div>
+  <div class="hero-top">
+    <div>
+      <span class="eyebrow">Label · Management · Distribution</span>
+      <div class="kicker">since 2026 — dushanbe</div>
+    </div>
+    <svg class="logo-badge" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Логотип Asiabgmusic">
+      <circle cx="50" cy="50" r="47" fill="#15111f" stroke="#e8b75c" stroke-width="2"/>
+      <circle cx="50" cy="50" r="40" fill="none" stroke="#e8b75c" stroke-width="0.6" stroke-dasharray="2 4" opacity="0.6"/>
+      <path d="M50 20 L74 68 L59 68 L50 50 L41 68 L26 68 Z" fill="#e8b75c"/>
+      <rect x="43" y="72" width="3.4" height="9" fill="#c6478a"/>
+      <rect x="48.3" y="67" width="3.4" height="14" fill="#e8b75c"/>
+      <rect x="53.6" y="74" width="3.4" height="7" fill="#c6478a"/>
+    </svg>
+  </div>
+
+  <div class="hero-mid">
+    <h1 class="hero-title">Only First<br>Asia BG Music</h1>
+    <div class="hero-sub">asiabgmusic</div>
+  </div>
+  </div>
+
+  <div class="scrollcue"><div class="bar"></div>вниз</div>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div>
+      <p class="lead">Asia BG Music — <b>менеджмент, продюсирование, артист сервис, дистрибуция.</b> Компания основана в 2026 году.</p>
+      <p class="founders">Основатели — <span>Фирдавси Файзалиев</span> и <span>Ольга Горбунова</span>.</p>
+    </div>
+    <div>
+      <div class="roster-label">С нами</div>
+      <div class="ticker-wrap">
+        <div class="ticker" id="ticker"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="num">200+</div>
+      <div class="label">артистов в каталоге</div>
+    </div>
+    <div class="stat">
+      <div class="num">10 000+</div>
+      <div class="label">треков в каталоге</div>
+    </div>
+    <div class="stat">
+      <div class="num">1 млрд+</div>
+      <div class="label">стримов за 2025 год</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="services" id="services">
+  <span class="eyebrow">что мы делаем</span>
+  <h2 class="section-head">Услуги</h2>
+
+  <div class="svc-grid">
+
+    <div class="svc">
+      <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="8" width="18" height="12" rx="1.5"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></div>
+      <h3>Менеджмент</h3>
+      <p>Берём операционные процессы на себя, чтобы можно было полностью сосредоточиться на творчестве.</p>
+    </div>
+
+    <div class="svc">
+      <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg></div>
+      <h3>Дистрибуция</h3>
+      <p>Размещение музыки на всех основных стриминговых платформах и цифровых магазинах по всему миру.</p>
+    </div>
+
+    <div class="svc">
+      <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="13" rx="1"/><path d="M3 7l3-4h3l-2 4M11 7l3-4h3l-2 4M19 7l1.5-2"/></svg></div>
+      <h3>Синхронизация</h3>
+      <p>Лицензирование треков для использования в фильмах, рекламе, играх и других медиа-проектах.</p>
+    </div>
+
+    <div class="svc">
+      <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4h9l4 4v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/><path d="M15 4v4h4"/><circle cx="12" cy="14" r="2.4"/><path d="M12 11.6v.8M12 15.6v.8M9.6 14h.8M13.6 14h.8"/></svg></div>
+      <h3>Паблишинг</h3>
+      <p>Управление авторскими правами и сбор роялти для максимально эффективной монетизации музыки.</p>
+    </div>
+
+    <div class="svc">
+      <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0"/><path d="M12 17v4M9 21h6"/></svg></div>
+      <h3>Концерты</h3>
+      <p>Организация выступлений на клаб-шоу и фестивалях, а также организация билетных концертов.</p>
+    </div>
+
+    <div class="svc">
+      <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6l-5 4H4a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6M19 6.5a8 8 0 0 1 0 11"/></svg></div>
+      <h3>Промо и продвижение</h3>
+      <p>Освещение релизов на витринах стриминговых сервисов и продвижение с помощью актуальных диджитал-инструментов.</p>
+    </div>
+
+    <div class="svc">
+      <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="2.5" width="12" height="19" rx="2.2"/><path d="M9.2 6.5h2.4v6a1.9 1.9 0 1 1-1.2-1.75V6.5"/><path d="M11.6 6.5H14"/></svg></div>
+      <h3>Мобильные площадки</h3>
+      <p>Размещение треков на сервисах рингтонов, мелодий вызова и других мобильных платформах.</p>
+    </div>
+
+    <div class="svc">
+      <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="13" r="2"/><path d="M8.5 9.5a5 5 0 0 1 7 0M6 7a8.5 8.5 0 0 1 12 0"/><path d="M2 13h3M19 13h3M12 4v3"/><rect x="16" y="6" width="6" height="4.5" rx="0.6" transform="translate(0,10)"/></svg></div>
+      <h3>Радио и ТВ</h3>
+      <p>Продвижение треков на радиостанциях и телеканалах для увеличения охвата и узнаваемости.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= ANKETA ================= -->
+<section class="anketa" id="anketa">
+  <div class="pitch">
+    <span class="eyebrow">Хотите к нам?</span>
+    <h2 class="section-head">Заполнить<br>анкету</h2>
+    <p>Заполните поля справа — при отправке откроется ваш почтовый клиент с готовым письмом, останется только нажать «Отправить».</p>
+    <a class="cta" href="#f-name">Заполнить анкету ↓</a>
+  </div>
+
+  <form class="pass" id="anketa-form" novalidate>
+    <div class="pass-row">
+      <div class="n">01</div>
+      <div class="q">
+        <label for="f-name">Как Вас зовут?</label>
+        <input id="f-name" name="name" type="text" placeholder="Имя и фамилия" required>
+      </div>
+    </div>
+    <div class="pass-row">
+      <div class="n">02</div>
+      <div class="q">
+        <label for="f-nick">Укажите Ваш никнейм</label>
+        <input id="f-nick" name="nick" type="text" placeholder="Артистический псевдоним" required>
+      </div>
+    </div>
+    <div class="pass-row">
+      <div class="n">03</div>
+      <div class="q">
+        <label for="f-demo">Прикрепите ссылку на демо для ознакомления</label>
+        <input id="f-demo" name="demo" type="url" placeholder="Ссылка на трек / плейлист" required>
+      </div>
+    </div>
+    <div class="pass-row">
+      <div class="n">04</div>
+      <div class="q">
+        <label for="f-yandex">Пришлите ссылку на карточку исполнителя в Яндекс Музыке <span class="opt">(если ранее уже издавали треки)</span></label>
+        <input id="f-yandex" name="yandex" type="url" placeholder="Необязательно">
+      </div>
+    </div>
+    <div class="pass-row">
+      <div class="n">05</div>
+      <div class="q">
+        <label for="f-ach">Поделитесь Вашими достижениями</label>
+        <textarea id="f-ach" name="achievements" rows="3" placeholder="Награды, охваты, релизы, сотрудничества..." required></textarea>
+      </div>
+    </div>
+    <div class="pass-row">
+      <div class="n">06</div>
+      <div class="q">
+        <label for="f-contact">Укажите контактные данные</label>
+        <input id="f-contact" name="contact" type="text" placeholder="Телефон, Telegram или email" required>
+      </div>
+    </div>
+    <div class="pass-submit">
+      <button type="submit" class="send-btn">Отправить анкету</button>
+      <span class="send-note" id="send-note">Откроется ваш почтовый клиент с готовым письмом в Asia BG Music</span>
+    </div>
+  </form>
+</section>
+
+<footer>
+  <div class="f-brand">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="47" fill="none" stroke="#3a3450" stroke-width="2"/>
+      <path d="M50 22 L74 68 L59 68 L50 50 L41 68 L26 68 Z" fill="#3a3450"/>
+    </svg>
+    ASIA BG MUSIC © 2026 · asiabgmusic.com
+  </div>
+  <div>DUSHANBE</div>
+</footer>
+
+<script>
+  // equalizer background bars
+  (function(){
+    var eq = document.getElementById('eq');
+    var n = 48;
+    for(var i=0;i<n;i++){
+      var s = document.createElement('span');
+      var h = 20 + Math.round(Math.sin(i*0.7)*20 + Math.random()*40);
+      s.style.height = h + '%';
+      s.style.animationDelay = (Math.random()*2).toFixed(2)+'s';
+      s.style.animationDuration = (1.8 + Math.random()*1.4).toFixed(2)+'s';
+      eq.appendChild(s);
+    }
+  })();
+
+  // roster ticker (duplicated for seamless loop)
+  (function(){
+    var artists = ["BASSTER","C.ONE","DUSHANBE PRO","TIMA TM","ZAF","SHON MC","EZEL","CHEYS","СИНДРОМ ГЛАВНОГО ГЕРОЯ","MR.FIRA","AKON MC","SHAHKOM","HUSNI"];
+    var wrap = document.getElementById('ticker');
+    var html = '';
+    for(var r=0;r<2;r++){
+      artists.forEach(function(a){ html += '<span class="chip">'+a+'</span>'; });
+    }
+    wrap.innerHTML = html;
+  })();
+
+  // sticky nav reveal
+  (function(){
+    var nav = document.getElementById('mininav');
+    var hero = document.getElementById('top');
+    window.addEventListener('scroll', function(){
+      if(window.scrollY > hero.offsetHeight * 0.6){
+        nav.classList.add('show');
+      } else {
+        nav.classList.remove('show');
+      }
+    });
+  })();
+
+  // anketa form -> mailto
+  (function(){
+    // адрес хранится закодированным, чтобы не светиться в исходном коде страницы
+    var TO = atob('Ymh1cnNoZWQ1NTU1QGdtYWlsLmNvbQ==');
+    var form = document.getElementById('anketa-form');
+    var note = document.getElementById('send-note');
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      var name = form.name.value.trim();
+      var nick = form.nick.value.trim();
+      var demo = form.demo.value.trim();
+      var yandex = form.yandex.value.trim();
+      var ach = form.achievements.value.trim();
+      var contact = form.contact.value.trim();
+
+      var missing = [];
+      if(!name) missing.push(form.name);
+      if(!nick) missing.push(form.nick);
+      if(!demo) missing.push(form.demo);
+      if(!ach) missing.push(form.achievements);
+      if(!contact) missing.push(form.contact);
+
+      form.querySelectorAll('input, textarea').forEach(function(el){
+        el.style.borderColor = '';
+      });
+
+      if(missing.length){
+        missing.forEach(function(el){ el.style.borderColor = '#c6478a'; });
+        note.textContent = 'Заполните обязательные поля (отмечены розовым) — они нужны, чтобы мы могли рассмотреть заявку.';
+        note.classList.add('err');
+        missing[0].focus();
+        return;
+      }
+
+      note.classList.remove('err');
+      note.textContent = 'Отправляем анкету...';
+
+      var formData = new FormData();
+      formData.append('name', name);
+      formData.append('nick', nick);
+      formData.append('demo', demo);
+      formData.append('yandex', yandex);
+      formData.append('achievements', ach);
+      formData.append('contact', contact);
+
+      fetch('https://formspree.io/f/mlgqnbev', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(function(response){
+        if(response.ok){
+          note.textContent = '✅ Спасибо! Анкета успешно отправлена. Мы свяжемся с вами в скором времени.';
+          note.classList.remove('err');
+          form.reset();
+        } else {
+          note.textContent = '❌ Ошибка при отправке. Попробуйте ещё раз.';
+          note.classList.add('err');
+        }
+      })
+      .catch(function(error){
+        note.textContent = '❌ Ошибка: ' + error.message;
+        note.classList.add('err');
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
